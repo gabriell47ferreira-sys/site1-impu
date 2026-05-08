@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;1,14..32,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Design tokens ────────────────────────────────────────── */
+:root {
+  --orange:       #FF6A00;
+  --orange-light: #FF8C42;
+  --bg:           #0B0B0B;
+  --surface:      #111111;
+  --card:         #141414;
+  --border:       #1e1e1e;
+  --text:         #FFFFFF;
+  --text-2:       #888888;
+  --text-3:       #444444;
+}
+
+/* ─── Reset ────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ─── Scrollbar ────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 2px; }
+
+::selection { background: var(--orange); color: #000; }
+
+/* ─── Font helpers ─────────────────────────────────────────── */
+.font-display { font-family: 'Syne', sans-serif; }
+.font-body    { font-family: 'Inter', sans-serif; }
+
+/* ─── Gradient text ────────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #FF6A00 0%, #FF8C42 55%, #FFB347 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Glow helpers ─────────────────────────────────────────── */
+.glow-text {
+  filter: drop-shadow(0 0 20px rgba(255,106,0,0.50));
+}
+
+.glow-border {
+  box-shadow: 0 0 0 1px rgba(255,106,0,0.22), 0 0 28px rgba(255,106,0,0.07);
+}
+
+/* ─── Glass ────────────────────────────────────────────────── */
+.glass {
+  background: rgba(18,18,18,0.70);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.045);
+}
+
+/* ─── Shimmer ──────────────────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+.shimmer-layer {
+  background: linear-gradient(
+    105deg, transparent 30%, rgba(255,255,255,0.18) 50%, transparent 70%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2.8s ease-in-out infinite;
+}
+
+/* ─── Section divider ──────────────────────────────────────── */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,106,0,0.18), transparent);
+}
+
+/* ─── Film grain ────────────────────────────────────────────── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.022;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.80' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
