@@ -128,7 +128,7 @@ const reveal = {
 
 /* ─── Hero ──────────────────────────────────────────────────────────────── */
 export default function Hero() {
-  const sectionRef = useRef<HTMLElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   /* ── scroll parallax ── */
   const { scrollYProgress } = useScroll({
@@ -358,6 +358,6 @@ export default function Hero() {
           className="w-px h-10 bg-gradient-to-b from-[#FF6A00]/50 to-transparent"
         />
       </motion.div>
-    </section>
+    </div>
   );
 }
