@@ -358,6 +358,6 @@ export default function Hero() {
           className="w-px h-10 bg-gradient-to-b from-[#FF6A00]/50 to-transparent"
         />
       </motion.div>
-    </div>
+    <section>
   );
 }
